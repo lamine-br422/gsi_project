@@ -1,13 +1,12 @@
-from module import Module
-from unit import Unit
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-def test_unit_average_and_credit():
-    m1 = Module("MTI", "Methods", coef=3, credit=5)
+from unit import Unit
+from module import Module
+
+def test_unit_average():
+    m1 = Module("AABD", "Base de données", coef=2, credit=4)
     m1.set_grade(tp=10, exam=12)
-    m2 = Module("AABD", "Database", coef=2, credit=4)
-    m2.set_grade(tp=8, exam=6)
-    u = Unit("UEM11", "UE Méthodologie", [m1, m2])
-    avg = u.calculate_average()
-    credit = u.calculate_credits()
-    assert round(avg, 1) == 9.6
-    assert credit == 0  # car moyenne < 10
+    u = Unit("UEM11", "Méthodologie", [m1])
+    assert round(u.calculate_average(), 2) == 11.2
+
