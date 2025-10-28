@@ -1,7 +1,7 @@
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from module import Module
+from .module import Module
 
 def test_module_average_and_credit():
     m = Module("MTI", "Methods & Technologies of Implementation",
@@ -12,3 +12,4 @@ def test_module_average_and_credit():
     credit = m.calculate_credits()
     assert round(avg, 1) == 11.2
     assert credit == 5
+
